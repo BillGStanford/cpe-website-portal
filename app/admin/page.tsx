@@ -288,7 +288,7 @@ export default function SubmissionsPage() {
       )}
       {preview && (
         <Modal onClose={() => setPreview(null)}>
-          <CandidateCard data={{ memberId: preview.member_id, fullName: preview.full_name, regionCity: preview.region_city, dateOfIssue: new Date(preview.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }} />
+          <CandidateCard data={{ memberId: preview.member_id, fullName: preview.full_name, regionCity: preview.region_city ?? '', dateOfIssue: new Date(preview.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }} />
         </Modal>
       )}
     </div>
