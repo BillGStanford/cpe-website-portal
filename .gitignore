@@ -1,5 +1,4 @@
-@"
-node_modules/
+﻿node_modules/
 .next/
 out/
 .env*.local
@@ -10,4 +9,3 @@ next-env.d.ts
 .DS_Store
 npm-debug.log*
 package-lock.json
-"@ | Out-File -Encoding utf8 .gitignore
