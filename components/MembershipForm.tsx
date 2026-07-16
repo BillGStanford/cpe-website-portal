@@ -172,11 +172,11 @@ export function MembershipForm({ pollId }: { pollId: string }) {
         </span>
         <h2 className="text-2xl font-black uppercase text-[#0d0d0d] mb-3">{t('successTitle')}</h2>
         <p className="text-[#4a4438] mb-10">{t('successBody')}</p>
-        <CandidateCard
+                <CandidateCard
           autoDownload
           data={{
             memberId: result.memberId,
-            fullName: form.fullLegalName,
+            fullName: form.pseudonym,  // ← was form.fullLegalName
             regionCity: result.regionCity,
             dateOfIssue: new Date().toLocaleDateString(lang === 'AM' ? 'am-ET' : 'en-US', {
               year: 'numeric', month: 'long', day: 'numeric',
