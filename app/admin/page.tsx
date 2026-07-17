@@ -287,16 +287,8 @@ export default function SubmissionsPage() {
           onVerify={handleVerifyLocation} onUnverify={handleUnverifyLocation} verifying={verifying} unverifying={unverifying} L={L} />
       )}
       {preview && (
-        <Modal onClose={() => setPreview(null)} wide>
-          <CandidateCard 
-            data={{ 
-              memberId: preview.member_id, 
-              pseudonym: preview.pseudonym,
-              fullName: preview.full_name,
-              regionCity: preview.region_city ?? '', 
-              dateOfIssue: new Date(preview.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) 
-            }} 
-          />
+        <Modal onClose={() => setPreview(null)}>
+          <CandidateCard data={{ memberId: preview.member_id, fullName: preview.full_name, regionCity: preview.region_city ?? '', dateOfIssue: new Date(preview.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }} />
         </Modal>
       )}
     </div>
@@ -509,7 +501,7 @@ function Row({ label, value }: { label: string; value: string }) {
 function Modal({ children, onClose, wide = false }: { children: React.ReactNode; onClose: () => void; wide?: boolean }) {
   return (
     <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4" onClick={onClose}>
-      <div className={`bg-[#1c1414] border border-[#B8860B]/30 rounded-xl p-6 w-full ${wide ? 'max-w-6xl' : 'max-w-lg'}`} onClick={(e) => e.stopPropagation()}>
+      <div className={`bg-[#1c1414] border border-[#B8860B]/30 rounded-xl p-6 w-full ${wide ? 'max-w-2xl' : 'max-w-lg'}`} onClick={(e) => e.stopPropagation()}>
         {children}
         <button onClick={onClose} className="mt-5 text-xs font-semibold text-[#9a9284] hover:text-[#e8e2d4]">Close</button>
       </div>
